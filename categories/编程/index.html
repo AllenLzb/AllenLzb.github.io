@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html  lang="en">
 
 <head>
   
@@ -21,9 +21,9 @@
 <meta property="article:author" content="Lzb">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=1623938469487">
+  <link rel="stylesheet" href="/css/style.css?v=1623946504021">
   
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1623938469487">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1623946504021">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -46,12 +46,57 @@
             <img src="https://pic.imgdb.cn/item/60cb4f66844ef46bb25e8a09.jpg" alt="Lzb" alt="Lzb">
         </a>
     </div>
-    <div class="nexmoe-count">
-        <div><span>Articles</span>9</div>
-        <div><span>Tags</span>7</div>
-        <div><span>Categories</span>6</div>
+
+ <div id="binft" align="center" style="height:30px"></div>
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["Hello World", "博主","刘昭博", "现住地","上海","主攻","JAVA","Python"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(0,0,0)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
+
+   <div class="nexmoe-count" style="margin-bottom:-1px">
+        <div><span>文章</span>9</div>
+        <div><span>标签</span>7</div>
+        <div><span>类别</span>6</div>
     </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+  
+    <div  class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
         <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
             <i class="mdui-list-item-icon nexmoefont icon-home"></i>
@@ -203,12 +248,18 @@
         
     </div>
 </div><!-- .nexmoe-drawer -->
+<iframe style="margin-left:20.9%;margin-bottom:-6px" frameborder="no" border="0" marginwidth="0" marginheight="0" width=880 height=45  src="//music.163.com/outchain/player?type=2&id=1835363902&auto=0&height=32"></iframe>
+
+
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts">
+
     
+      
     <div class="nexmoe-post">
+
         <a href="/2019/09/10/2019.09.10/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 62.5%;"> 
@@ -217,7 +268,6 @@
                 </div>
             
         </a>
-
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月10日</a>
             <a><i class="nexmoefont icon-areachart"></i>2.6k 字</a>
@@ -253,7 +303,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script async src="/js/app.js?v=1623938469489"></script>
+<script async src="/js/app.js?v=1623946504022"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -272,3 +322,6 @@
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":185,"height":270},"mobile":{"show":false},"log":false});</script></body>
 
 </html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
