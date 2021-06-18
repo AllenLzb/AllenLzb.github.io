@@ -154,4 +154,11 @@
 .icon-home:before {
   content: "\e7c6";
 }
+.icon-tuchong:before{
+content:"\e600";
+}
+.icon-rss:before{
+content:"\e7ea";
+}
+
 
