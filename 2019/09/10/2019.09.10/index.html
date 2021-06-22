@@ -22,15 +22,15 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic.imgdb.cn/item/60d04018844ef46bb24be7a3.png">
 <meta property="article:published_time" content="2019-09-10T12:46:25.000Z">
-<meta property="article:modified_time" content="2021-06-21T08:14:32.569Z">
+<meta property="article:modified_time" content="2021-06-22T12:20:11.151Z">
 <meta property="article:author" content="Lzb">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic.imgdb.cn/item/60d04018844ef46bb24be7a3.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=1624274317437">
+  <link rel="stylesheet" href="/css/style.css?v=1624364436566">
   
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1624274317437">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1624364436566">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -268,8 +268,8 @@
     
     <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月10日</a>
-    <a><i class="nexmoefont icon-areachart"></i>3.8k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 16 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>4.3k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 18 分钟</a>
 </div>
 
     
@@ -304,16 +304,29 @@
 <p>18.java 容器都有哪些？<br>collection(kelaikeshen)和map<br><img src="https://pic.imgdb.cn/item/60d04018844ef46bb24be7a3.png"></p>
 <p>19.Collection 和 Collections 有什么区别？<br>collection是单列集合的顶级接口 派生set和list 具有单列集合中共有的功能<br>collections是一个集合类的工具类,提供很多静态方法</p>
 <p>20.List、Set、Map 之间的区别是什么？<br>list 允许重复,有序,有索引<br>set 不允许重复,无序,无索引<br>map是双列集合的顶级接口 储存键值对 键唯一 值不唯一</p>
-<p>21.HashMap 和 Hashtable 有什么区别？</p>
-<p>22.如何决定使用 HashMap 还是 TreeMap？</p>
-<p>23.说一下 HashMap 的实现原理？</p>
-<p>24.说一下 HashSet 的实现原理？</p>
-<p>25.ArrayList 和 LinkedList 的区别是什么？</p>
+<p>21.HashMap 和 Hashtable 有什么区别？<br>都是储存键值对,都是map实现类,都使用哈希表的方式储存</p>
+<p>线程安全性不同,hashtable是线程安全的,每个方法中都加入了synchronize方法<br>hashmap不是线程安全的,在多线程并发环境下,可以产生死锁</p>
+<p>hashmap效率高</p>
+<p>hashtable继承dictionary hashmap继承AbstractMap</p>
+<p>hashtable可以使用Enumeration遍历</p>
+<p>hashtable初始值是11 每次扩容2n+1 hashmap初始值是16 每次扩容2n</p>
+<p>22.如何决定使用 HashMap 还是 TreeMap？<br>需要得到一个有序的结果 使用treemap<br>不需要排序就是用hashmap</p>
+<p>23.说一下 HashMap 的实现原理？<br>hashmap是以hash表结构储存<br>可以存null<br>底层hashcode方法 结构是数组加链表红黑树</p>
+<p>24.说一下 HashSet 的实现原理？<br>父类接口是set集合<br>以hash表结构储存<br>多线程不安全<br>可以存null<br>底层使用hashmap实现</p>
+<p>25.ArrayList 和 LinkedList 的区别是什么？<br>相同点他们都是单列集合list接口的实现类,都是有序的,有索引的,可重复的</p>
+<p>数据结构不同 arraylist数据结构是动态数组 listlist数据结构是双向链表</p>
+<p>随机访问方式不同 linklist是线性的存储方式,需要指针从前往后依次查找<br>所以arraylist比linklist随机访问的时候效率要高</p>
+<p>增加和删除时arraylist影响其他数组下标,所以linklist要比arraylist效率要高</p>
+<p>一般情况下 在需要频繁读取集合中元素时使用arraylist<br>再插入和删除操作时使用linkedlist</p>
 <p>26.如何实现数组和 List 之间的转换？</p>
-<p>27.ArrayList 和 Vector 的区别是什么？</p>
-<p>28.Array 和 ArrayList 有何区别？</p>
-<p>29.在 Queue 中 poll()和 remove()有什么区别？</p>
-<p>30.哪些集合类是线程安全的？</p>
+<p>数组转list使用java util arrays工具类的 salist方法</p>
+<p>list转数组使用toarray方法</p>
+<p>27.ArrayList 和 Vector 的区别是什么？<br>vector是线程安全的 有synchronized 而arraylist是线程不安全的<br>vector扩容是原来的一倍 arraylist是0.5倍</p>
+<p>一般情况下<br>如果只有一个线程访问到集合 使用arraylist 如果有多个线程访问 使用vector<br>这样不需要考虑和编写线程安全的代码</p>
+<p>28.Array 和 ArrayList 有何区别？<br>根本区别就不一样<br>arry是数组 arraylist是集合<br>array包含基本对象和对象类型 arraylist只能包含对象类型<br>arraylist集合可以自动扩容 array数组创建后不可更改<br>arraylist提供很多方法 比如 addall removeall iterator<br>array类型的变量在声明同时必须进行初始化 arraylist可以先声明<br>arraylist提供自动装箱</p>
+<p>29.在 Queue 中 poll()和 remove()有什么区别？<br>都是返回第一个元素 并在队列中删除返回的对象</p>
+<p>remove队列为空时抛出异常 poll则返回null</p>
+<p>30.哪些集合类是线程安全的？<br>vector<br>hashtable<br>stack<br>cocurrenthashmap</p>
 <p>31.迭代器 Iterator 是什么？</p>
 <p>32.Iterator 怎么使用？有什么特点？</p>
 <p>33.Iterator 和 ListIterator 有什么区别？</p>
@@ -558,7 +571,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script async src="/js/app.js?v=1624274317438"></script>
+<script async src="/js/app.js?v=1624364436566"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
