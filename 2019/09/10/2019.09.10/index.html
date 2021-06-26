@@ -23,15 +23,15 @@
 <meta property="og:image" content="https://pic.imgdb.cn/item/60cb4f5e844ef46bb25e31f8.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/60d04018844ef46bb24be7a3.png">
 <meta property="article:published_time" content="2019-09-10T12:46:25.000Z">
-<meta property="article:modified_time" content="2021-06-24T06:23:02.665Z">
+<meta property="article:modified_time" content="2021-06-26T16:31:38.495Z">
 <meta property="article:author" content="Lzb">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic.imgdb.cn/item/60cb4f5e844ef46bb25e31f8.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=1624619831866">
+  <link rel="stylesheet" href="/css/style.css?v=1624725242718">
   
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1624619831866">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1624725242718">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -285,8 +285,8 @@
     
     <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月10日</a>
-    <a><i class="nexmoefont icon-areachart"></i>5.3k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 22 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>11.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 49 分钟</a>
 </div>
 
     
@@ -369,180 +369,188 @@
 <p>锁级别 : 无锁 &gt; 偏向锁 &gt; 轻量级锁 &gt; 重量级锁</p>
 <p>49.什么是死锁？<br>两个或两个以上的进程在执行的过程中由于竞争资源或者彼此通信造成阻塞<br>永远在互相等待的进程成为死锁进程</p>
 <p>50.怎么防止死锁？<br>尽量使用tryLock方法 设置超时时间 超时退出<br>尽量使用java util concurrent 并发类代替自己手写锁<br>尽量降低锁的使用粒度 尽量不要几个功能用同一把锁<br>尽量减少同步代码块</p>
-<p>51.ThreadLocal 是什么？有哪些使用场景？</p>
-<p>52.说一下 synchronized 底层实现原理？</p>
-<p>53.synchronized 和 volatile 的区别是什么？</p>
-<p>54.synchronized 和 Lock 有什么区别？</p>
-<p>55.synchronized 和 ReentrantLock 区别是什么？</p>
-<p>56.说一下 atomic 的原理？</p>
+<p>51.ThreadLocal 是什么？有哪些使用场景？<br>ThreadLocal用于保存某个线程共享变量<br>解决数据库连接<br>Session管理</p>
+<p>52.说一下 synchronized 底层实现原理？<br>synchronized是由monitorenter指令实现的<br>monitor对象是同步的基本实现单元<br>jvm提供了三种不同的monitor实现<br>偏向锁<br>轻量级锁<br>重量级锁</p>
+<p>53.synchronized 和 volatile 的区别是什么？<br>volatile是变量修饰符synchronized修饰类,方法,代码段<br>volatile仅能实现变量的修改可见性,不能保证原子性<br>volatile不会造成线程的阻塞</p>
+<p>54.synchronized 和 Lock 有什么区别？<br>synchronized可以给类,方法,代码块加锁 而lock只能给代码块加锁<br>synchronized不需要手动获取锁和释放锁<br>lock可以知道有没有成功获取锁</p>
+<p>55.synchronized 和 ReentrantLock 区别是什么？<br>synchronize早期实现相比之下性能低效<br>java6中进行了改进</p>
+<p>56.说一下 atomic 的原理？<br>atomic主要利用CAS<br>volailes<br>native<br>保证原子操作,提升效率</p>
 <p>四、反射</p>
-<p>57.什么是反射？</p>
-<p>58.什么是 java 序列化？什么情况下需要序列化？</p>
-<p>59.动态代理是什么？有哪些应用？</p>
-<p>60.怎么实现动态代理？</p>
+<p>57.什么是反射？<br>可以将一个程序类在运行的时候获得该类程序的信息的机制<br>就是获得在编译期间不可获取的类的信息<br>因为这些信息是保存在class对象中的<br>而这个class对象是在程序运行时动态加载的</p>
+<p>58.什么是 java 序列化？什么情况下需要序列化？<br>将java转为字节序列<br>对象的字节序列化到永久的保存到硬盘中<br>在网络上传递对象的字节序列</p>
+<p>59.动态代理是什么？有哪些应用？<br>运行时动态生成的代理类<br>控制对象的执行过程<br> 本来应该自己做的事情,因为某种原因不能直接做,只能请别人代理做</p>
+<p> Spring中的AOP</p>
+<p>60.怎么实现动态代理？<br>JDK动态代理<br>cglib动态代理</p>
 <p>五、对象拷贝</p>
-<p>61.为什么要使用克隆？</p>
-<p>62.如何实现对象克隆？</p>
-<p>63.深拷贝和浅拷贝区别是什么？</p>
+<p>61.为什么要使用克隆？<br>需要一个新的对象来保存当前对象的状态 需要克隆</p>
+<p>62.如何实现对象克隆？<br>实现cloneeable接口重写object中的clone()方法<br>实现serializable接口,通过对象的序列化和反序列化实现克隆</p>
+<p>63.深拷贝和浅拷贝区别是什么？<br>浅克隆:当对象被复制时只复制它本身和其中包含的值类型的成员变量.引用类型的成员变量并没有复制<br>深克隆:除了对象本身被复制.对象包含的所有成员变量也将复制</p>
 <p>六、Java Web</p>
-<p>64.jsp 和 servlet 有什么区别？</p>
-<p>65.jsp 有哪些内置对象？作用分别是什么？</p>
-<p>66.说一下 jsp 的 4 种作用域？</p>
-<p>67.session 和 cookie 有什么区别？</p>
-<p>68.说一下 session 的工作原理？</p>
-<p>69.如果客户端禁止 cookie 能实现 session 还能用吗？</p>
-<p>70.spring mvc 和 struts 的区别是什么？</p>
-<p>71.如何避免 sql 注入？</p>
-<p>72.什么是 XSS 攻击，如何避免？</p>
-<p>73.什么是 CSRF 攻击，如何避免？</p>
+<p>64.jsp 和 servlet 有什么区别？<br>jsp编译后就成了servlet<br>jsp更擅长表现于页面显示.servlet擅长逻辑控制<br>servlet没有内置对象<br>jsp中的内置对象必须通过httpServletRequest对象<br>httpServletResponse对象以及HttpServlet对象得到</p>
+<p>65.jsp 有哪些内置对象？作用分别是什么？<br>9大内置对象<br>request 封装客户端的请求,其中包含来自get或post请求的参数<br>reponse 封装服务器对客户端的响应<br>pagecontext 通过该对象可以获取其他对象<br>session 封装会话<br>application封装服务器运行环境的对象<br>out输出服务器相应的输出流对象<br>config web应用的配置对象<br>page jsp页面本身<br>exception 封装页面抛出的异常对象</p>
+<p>66.说一下 jsp 的 4 种作用域？<br>application 在所有应用程序中<br>session 在当前会话中<br>request 在当前请求中<br>page 在当前页面有效</p>
+<p>67.session 和 cookie 有什么区别？<br>储存位置不同<br>cokkie存放在客户端浏览器上<br>session存放在服务器上</p>
+<p>存储容量不同<br>单个cookie保存的数据&lt;=4kb 一个站点20个cookie<br>session没有上限 但是出于对性能的考虑session不要放过多的东西 并且设置session删除机制</p>
+<p>68.说一下 session 的工作原理？<br>客户端登录后,服务器创建对应的session,session创建完之后会把session的id发送给客户端<br>客户端在储存到浏览器中,这样客户端每次访问服务器时,都会带着sessionid<br>服务器拿到sessionid之后,在内存中找到对应的session就可以了</p>
+<p>69.如果客户端禁止 cookie 能实现 session 还能用吗？<br>不能<br>服务端没有得到phpeseeion的cookie 会不停的生成session_id文件</p>
+<p>70.spring mvc 和 struts 的区别是什么？<br>拦截机制不同<br>struts2是类级别的拦截<br>srping mvc是方法级别的拦截<br>底层框架不同<br>struts采用filter实现<br>Spring MVC 则采用Servlet实现<br>性能方面<br>Spring MVC的开发效率高于Struts2</p>
+<p>71.如何避免 sql 注入？<br>PreparedStatement<br>可读性高<br>效率高<br>安全性高</p>
+<p>72.什么是 XSS 攻击，如何避免？<br>xss是一种网站应用程序的安全漏洞攻击,他有三种攻击方式<br>代码注入的一种,恶意用户将代码注入到网页上去,影响观感</p>
+<p>对输入的内容的特定字符进行编码<br>对重要的coddie设置httpOnly<br>对url参数中获取值进行格式检测<br>不要解析运行不确定的数据代码<br>后端接口也要做到关键子过滤</p>
+<p>73.什么是 CSRF 攻击，如何避免？<br>是一种跨站点请求伪造与xss相似</p>
+<p>csrf漏洞检测工具<br>验证HTTP Referer字段<br>添加并验证token<br>添加自定义http请求头<br>敏感操作添加验证码<br>使用post请求</p>
 <p>七、异常</p>
-<p>74.throw 和 throws 的区别？</p>
-<p>75.final、finally、finalize 有什么区别？</p>
-<p>76.try-catch-finally 中哪个部分可以省略？</p>
-<p>77.try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</p>
-<p>78.常见的异常类有哪些？</p>
+<p>74.throw 和 throws 的区别？<br>throws可以单独使用<br>throw不可以 必须搭配try chtch</p>
+<p>75.final、finally、finalize 有什么区别？<br>final用于声明属性时属性不可变 声明方法时方法不可覆盖 声明类时不可继承<br>finally时异常处理语句结构的一部分表示总是执行<br>finalize时object一个方法 在垃圾收集器执行的时候会调用此方法</p>
+<p>76.try-catch-finally 中哪个部分可以省略？<br>try-catch<br>try-finally<br>try-catch-finally</p>
+<p>77.try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？<br>会执行 catch中的return会等代码执行完之后才会执行</p>
+<p>78.常见的异常类有哪些？<br>NullpointerException空指针异常<br>ClassNotFoundException指定类不存在<br>NumberFormatException字符转数字异常<br>IndexOutBoundsException数组下标异常<br>ClassCastException数据类型转换异常<br>NosuchMethodException方法不存在异常<br>FileNotFoundException方法未找到异常<br>IoeException io异常<br>SocketException Socket异常</p>
 <p>八、网络</p>
-<p>79.http 响应码 301 和 302 代表的是什么？有什么区别？</p>
-<p>80.forward 和 redirect 的区别？</p>
-<p>81.简述 tcp 和 udp的区别？</p>
-<p>82.tcp 为什么要三次握手，两次不行吗？为什么？</p>
-<p>83.说一下 tcp 粘包是怎么产生的？</p>
-<p>84.OSI 的七层模型都有哪些？</p>
-<p>85.get 和 post 请求有哪些区别？</p>
-<p>86.如何实现跨域？</p>
-<p>87.说一下 JSONP 实现原理？</p>
+<p>79.http 响应码 301 和 302 代表的是什么？有什么区别？<br>301表示网页永久性转移到另一个地址 永久重定向<br>302表示临时性转移 临时重定向</p>
+<p>80.forward 和 redirect 的区别？<br>forward时服务器的内部重定向<br>redirect 是服务器收到请求发送的一个状态头给客户 客户端重新请求一次</p>
+<p>81.简述 tcp 和 udp的区别？<br>osi模型中的运输层中的协议<br>tcp时可靠的通信传输<br>udp用于广播和细节</p>
+<p>82.tcp 为什么要三次握手，两次不行吗？为什么？<br>如果采用两次握手 那么只要服务器发出确认就会建立连接 但是客户端未响应服务器端的请求<br>服务端就会一直等待客户端,这样服务器就白白浪费了一定的资源</p>
+<p>83.说一下 tcp 粘包是怎么产生的？<br>发送端粘包 发送端需要等缓冲区满才发送出去<br>接收方粘包 接收不及时接受缓冲区的包,造成多个包接受</p>
+<p>84.OSI 的七层模型都有哪些？<br>物理层<br>数据链路层<br>网络层<br>传输层<br>表示层<br>应用层</p>
+<p>85.get 和 post 请求有哪些区别？<br>get请求的参数在URL中 而post请求在body中<br>get请求传参有长度限制<br>get请求的参数之恩那个是ASCI码</p>
+<p>86.如何实现跨域？<br>使用cors技术<br>使用JSONP</p>
+<p>87.说一下 JSONP 实现原理？<br>jsonp是一种请轻量级别的数据交换模式</p>
 <p>九、设计模式</p>
-<p>88.说一下你熟悉的设计模式？</p>
-<p>89.简单工厂和抽象工厂有什么区别？</p>
+<p>88.说一下你熟悉的设计模式？<br>单例模式<br>工厂模式<br>观察者模式<br>外观模式<br>模板方式<br>状态模式</p>
+<p>89.简单工厂和抽象工厂有什么区别？<br>简单工厂 用来生产同一等级结构中的任意产品,对于增加新的产品.无能为力<br>工厂方法 用来生产同一等级结构中的固定产品,支持增加任意新品<br>抽象工厂 用来生产不同产品族的全部产品</p>
 <p>十、Spring/Spring MVC</p>
-<p>90.为什么要使用 spring？</p>
-<p>91.解释一下什么是 aop？</p>
-<p>92.解释一下什么是 ioc？</p>
-<p>93.spring 有哪些主要模块？</p>
-<p>94.spring 常用的注入方式有哪些？</p>
-<p>95.spring 中的 bean 是线程安全的吗？</p>
-<p>96.spring 支持几种 bean 的作用域？</p>
-<p>97.spring 自动装配 bean 有哪些方式？</p>
-<p>98.spring 事务实现方式有哪些？</p>
-<p>99.说一下 spring 的事务隔离？</p>
-<p>100.说一下 spring mvc 运行流程？</p>
-<p>101.spring mvc 有哪些组件？</p>
-<p>102.@RequestMapping 的作用是什么？</p>
-<p>103.@Autowired 的作用是什么？</p>
+<p>90.为什么要使用 spring？<br>Spring是一个开源框架,是一个轻量级控制反转和面向切面的容器框架<br>方便结构简化开发<br>aop编码支持<br>声明事务的支持<br>方便程序测试<br>方便继承<br>降低java ee api 的是使用难度</p>
+<p>91.解释一下什么是 aop？<br>aop面向切面编程<br>可以将一些系统性的编程工作,独立提取出来,独立实现,然后通过切面及系统<br>避免在业务逻辑代码混入很多系统相关的逻辑<br>比如 权限管理 事务管理 日志记录</p>
+<p>aop分为静态aop和动态aop</p>
+<p>92.解释一下什么是 ioc？<br>控制反转.是一种设计思想<br>ioc就是将你设计好的对象交给容器控制</p>
+<p>93.spring 有哪些主要模块？<br>Spring core 框架基础<br>Spring context 框架式的对象访问方法<br>Spring dao 提供了jdbc的抽象层<br>Spring web 提供了针对web开发的集成特性<br>Spring web mvc spring中的mvc封装包提供了web应用的实现</p>
+<p>94.spring 常用的注入方式有哪些？<br>构造方法注入<br>setter注入<br>基于注解注入</p>
+<p>95.spring 中的 bean 是线程安全的吗？<br>不是线程安全的<br>Spring中的been默认是单例模式<br>Spring框架并没有对单例bean进行多线程的封装处理</p>
+<p>96.spring 支持几种 bean 的作用域？<br>singleton spring ioc 容器只存在一个bean实例<br>prototype 每次容器调用been时都会创建一个新的实例<br>web环境下的作用域<br>   request<br>   session<br>   global-session </p>
+<p>97.spring 自动装配 bean 有哪些方式？<br>Byname:按照bean的属性名称来匹配要装配的bean<br>ByType:按照bean的类型来匹配要装配的bean<br>constructor 按照bean的构造器入参的类型来匹配<br>autodetect 自动检装配</p>
+<p>98.spring 事务实现方式有哪些？<br>声明式事务 xml配置文件 和注解方式<br>编码方式 提供编码的形式管理和维护事务</p>
+<p>99.说一下 spring 的事务隔离？<br>read uncommited未提交读<br>read commited 一个事务提交后才能被其他事务读取到<br>repeatable read 可重复读<br>serializable序列化</p>
+<p>100.说一下 spring mvc 运行流程？<br>Spring mvc先将请求发送给DispatcherServlet<br>DispatcharServlet查询一个或多个HandlerMapping,找到处理请求的Controller<br>DispatcherServlet再把请求提交给对应的Controller<br>Controller进行业务逻辑处理后,会返回一个ModelAndView<br>Dispatcher查询一个或者多个ViewResolver视图解析器,找到ModelAndView对象指定的视图对象<br>视图对象负责渲染返回给客户端</p>
+<p>101.spring mvc 有哪些组件？<br>前置控制器 dispatcherServlet<br>映射控制器 HandlerMapping<br>处理器 Controller<br>模型和试图 ModelAndView<br>视图解析器ViewResolver</p>
+<p>102.@RequestMapping 的作用是什么？<br>将HTTP请求映射到相应的类/方法上</p>
+<p>103.@Autowired 的作用是什么？<br>它可以对类成员变量 方法以及构造函数进行标注<br>可以用来消除set/get方法</p>
 <p>十一、Spring Boot/Spring Cloud</p>
-<p>104.什么是 spring boot？</p>
-<p>105.为什么要用 spring boot？</p>
-<p>106.spring boot 核心配置文件是什么？</p>
-<p>107.spring boot 配置文件有哪几种类型？它们有什么区别？</p>
-<p>108.spring boot 有哪些方式可以实现热部署？</p>
-<p>109.jpa 和 hibernate 有什么区别？</p>
-<p>110.什么是 spring cloud？</p>
-<p>111.spring cloud 断路器的作用是什么？</p>
-<p>112.spring cloud 的核心组件有哪些？</p>
+<p>104.什么是 spring boot？<br>SpringBoot是一个构建在Spring框架顶部的项目<br>他提供了一种更简单,更快捷的方法来设置,配置和运行简单的web程序</p>
+<p>105.为什么要用 spring boot？<br>配置简单<br>独立运行<br>自动装配<br>无代码生成和xml配置<br>提供应用监控<br>易上手<br>提升开发效率</p>
+<p>106.spring boot 核心配置文件是什么？<br>bootstrap 由父类 ApplicationContext加载 属性不不能被覆盖<br>application 用于spring boot 项目自动化配置</p>
+<p>107.spring boot 配置文件有哪几种类型？它们有什么区别？<br>properties格式和.yml格式</p>
+<p>108.spring boot 有哪些方式可以实现热部署？<br>使用devtools启动热部署<br>使用intellij ideea编辑器</p>
+<p>109.jpa 和 hibernate 有什么区别？<br>jpa就是java persistence API<br>是java持久化接口规范<br>hibernate属于jpa的具体实现</p>
+<p>110.什么是 spring cloud？<br>在Spring boot基础上创建,用于快速构建分布式系统的通用模式工具集<br>使用Spring Cloud开发的应用程序适合在Docker或者Pass上部署</p>
+<p>111.spring cloud 断路器的作用是什么？<br>当某个单元发生故障之后,通过断路器故障监控,向调用方法返回一个错误的相应<br>而不是长时间的等待,避免故障在分布式系统中的蔓延</p>
+<p>112.spring cloud 的核心组件有哪些？<br>Eureka:服务注册于发现<br>Feign:基于动态代理机制<br>ribbon:实现负载均衡<br>Hystrix:提供线程池<br>Zuul:网关管理</p>
 <p>十二、Hibernate</p>
-<p>113.为什么要使用 hibernate？</p>
-<p>114.什么是 ORM 框架？</p>
-<p>115.hibernate 中如何在控制台查看打印的 sql 语句？</p>
-<p>116.hibernate 有几种查询方式？</p>
-<p>117.hibernate 实体类可以被定义为 final 吗？</p>
-<p>118.在 hibernate 中使用 Integer 和 int 做映射有什么区别？</p>
-<p>119.hibernate 是如何工作的？</p>
-<p>120.get()和 load()的区别？</p>
-<p>121.说一下 hibernate 的缓存机制？</p>
-<p>122.hibernate 对象有哪些状态？</p>
-<p>123.在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</p>
-<p>124.hibernate 实体类必须要有无参构造函数吗？为什么？</p>
+<p>113.为什么要使用 hibernate？<br>对jdbc访问数据库的代码做了封装,大大简化了数据访问层繁琐的重复性代码<br>Hibernate是一个基于jdbc的主流持久化框架,是一个优秀的orm实现,很大程度简化DOR层的编码工作<br>hibernate使用java反射机制<br>性能很好.是一个轻量级框架,映射灵活,支持各种关系型数据库</p>
+<p>114.什么是 ORM 框架？<br>对象关系映射,面向对象的开发方法是当前企业级开发应用环境中的主流开发方法<br>关系数据库是企业级应用主流数据库<br>orm系统一般以中间件形式存在,主要实现程序对象到关系数据库的数据映射</p>
+<p>115.hibernate 中如何在控制台查看打印的 sql 语句？<br>在Application.properties配置代码</p>
+<p>116.hibernate 有几种查询方式？<br>hql查询<br>sql查询<br>条件查询</p>
+<p>117.hibernate 实体类可以被定义为 final 吗？<br>可以将hibernate的实体类定义final类<br>这样做不太好,hibernate会使用代理模式提高性能<br>java不允许对final类进行扩展所以无法再使用代理了</p>
+<p>118.在 hibernate 中使用 Integer 和 int 做映射有什么区别？<br>在Hibernate中,如果oid定义为integer类型<br>那个hibernate就可以根据值是否为Null判断对象是否是临时的<br>int做映射 需要在映射文件中配置unsaved属性为0</p>
+<p>119.hibernate 是如何工作的？<br>通过configuration con = new configuration().configure 读取并解析xml配置文件<br>由xml 中的 &lt;mapping resource=&gt;读取并解析映射信息<br>通过sessionFactory sf  = config.buildSessionFactory 创建SessionFactory<br>Session session = sf.openSession 打开Session<br>Transaction tx = session.beginTarnnsaction 创建并打开事务<br>Persistent operate操作数据 持久化操作<br>tX.commit 提交事务<br>关闭session<br>关闭SesstionFactory</p>
+<p>120.get()和 load()的区别？<br>load 没有使用对象的其他属性的时候 没有sql延迟加载<br>get 没有使用对象的其他属性 也生成sql 立即加载 </p>
+<p>121.说一下 hibernate 的缓存机制？<br>一级缓存就是Session级别的缓存,在事务范围内有效,内置的不能被卸载<br>二级缓存是SessionFactory级别的缓存,从应用启动到应用结束有效</p>
+<p>122.hibernate 对象有哪些状态？<br>Transient 瞬时 对象new出来<br>Persistent 持久 调用了save saveorupdate 有id<br>detached 脱管 当session close 完之后 点成Detached</p>
+<p>123.在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？<br>Opensession打开一个新的session对象,需要调用Close方法关闭session<br>getCurrentSession获取上下文一个Session对象 如果有已经使用的 用旧的<br>如果没有 用新的</p>
+<p>124.hibernate 实体类必须要有无参构造函数吗？为什么？<br>必须<br>因为hibernate框架会调用这个默认构造方法来构造实例对象</p>
 <p>十三、Mybatis</p>
 <p>125.mybatis 中 #{}和 ${}的区别是什么？</p>
-<p>126.mybatis 有几种分页方式？</p>
-<p>127.RowBounds 是一次性查询全部结果吗？为什么？</p>
-<p>128.mybatis 逻辑分页和物理分页的区别是什么？</p>
-<p>129.mybatis 是否支持延迟加载？延迟加载的原理是什么？</p>
-<p>130.说一下 mybatis 的一级缓存和二级缓存？</p>
-<p>131.mybatis 和 hibernate 的区别有哪些？</p>
-<p>132.mybatis 有哪些执行器（Executor）？</p>
-<p>133.mybatis 分页插件的实现原理是什么？</p>
-<p>134.mybatis 如何编写一个自定义插件？</p>
+<h1 id="是预编译处理-安全性更高-防止sql注入"><a href="#是预编译处理-安全性更高-防止sql注入" class="headerlink" title="{}是预编译处理 安全性更高 防止sql注入"></a>{}是预编译处理 安全性更高 防止sql注入</h1><p> $ {}是字符串替换 </p>
+<p>126.mybatis 有几种分页方式？<br>数组分页<br>sql分页<br>拦截分页<br>rowbounds分页</p>
+<p>127.RowBounds 是一次性查询全部结果吗？为什么？<br>并不是依次查询所有结果<br>因为mybatis是对jdbc的封装<br>在jdbc驱动中有一个fetch Size 的配置<br>他规定了每次从数据库查询多少条数据<br>他会使用next 防止内存溢出</p>
+<p>128.mybatis 逻辑分页和物理分页的区别是什么？<br>逻辑分页<br>从数据库将所有数据查询出来<br>存储到内存中<br>效率高 占用内存比较高<br>物理分页<br>只从数据库查询当前页的数据<br>不占用很多内存 效率相对低</p>
+<p>129.mybatis 是否支持延迟加载？延迟加载的原理是什么？<br>支持延迟加载<br>使用CGLIBC创建目标对象的代理对象<br>当调用目标方法时 进入拦截器方法</p>
+<p>130.说一下 mybatis 的一级缓存和二级缓存？<br>一级缓存 基于perpetualcache的hashmap的本地缓存 作用域为Session<br>二级缓存和一级缓存机制相同 默认采用 perpetualcache  hashmap<br>作用域为mapper</p>
+<p>131.mybatis 和 hibernate 的区别有哪些？<br>不完全是一个orm框架 mybatis需要自己编写sql语句</p>
+<p>mybatis直接编写原生态sql 可以严格控制sql执行性能,灵活度高<br>hibernate映射能力强 开发节省代码 提高效率</p>
+<p>132.mybatis 有哪些执行器（Executor）？<br>三种执行器<br>simplExcecutor 每次执行update 就开启一个statiement对象 用完立即关闭statiement<br>ReuseExecutor 执行update或者select 以sql作为key查找Statement对象<br>BatchExecutor 执行update 将所有sql添加处理</p>
+<p>133.mybatis 分页插件的实现原理是什么？<br>使用Mybatis提供插件接口,实现自定义插件<br>在插件的拦截方法内拦截待执行的sql<br>添加物理分页语句和物理分页参数</p>
+<p>134.mybatis 如何编写一个自定义插件？<br>Executor 拦截执行器的方法<br>StaementHandler 拦截sql语法构建的处理<br>ParamenterHanderler 拦截参数的处理<br>ResultSetHandler 拦截结果集的处理</p>
 <p>十四、RabbitMQ</p>
-<p>135.rabbitmq 的使用场景有哪些？</p>
-<p>136.rabbitmq 有哪些重要的角色？</p>
-<p>137.rabbitmq 有哪些重要的组件？</p>
-<p>138.rabbitmq 中 vhost 的作用是什么？</p>
-<p>139.rabbitmq 的消息是怎么发送的？</p>
-<p>140.rabbitmq 怎么保证消息的稳定性？</p>
-<p>141.rabbitmq 怎么避免消息丢失？</p>
-<p>142.要保证消息持久化成功的条件有哪些？</p>
-<p>143.rabbitmq 持久化有什么缺点？</p>
-<p>144.rabbitmq 有几种广播类型？</p>
-<p>145.rabbitmq 怎么实现延迟消息队列？</p>
-<p>146.rabbitmq 集群有什么用？</p>
-<p>147.rabbitmq 节点的类型有哪些？</p>
-<p>148.rabbitmq 集群搭建需要注意哪些问题？</p>
-<p>149.rabbitmq 每个节点是其他节点的完整拷贝吗？为什么？</p>
-<p>150.rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？</p>
-<p>151.rabbitmq 对集群节点停止顺序有要求吗？</p>
+<p>135.rabbitmq 的使用场景有哪些？<br>跨系统的异步通信<br>多个应用之间的耦合<br>应用内的同步变异步<br>消息驱动的架构<br>发布订阅<br>跨局域网</p>
+<p>136.rabbitmq 有哪些重要的角色？<br>生产者 消息的创建者 负责创建和推送数据到消息服务器<br>消费者 消息的接收方 用于处理数据和确认消息<br>代理 就是rabbitMq本身 </p>
+<p>137.rabbitmq 有哪些重要的组件？<br>ConnectionFactory 连接管理器<br>Channel 信道<br>Exchange 交换器<br>QUeue 队列<br>RoutkEY 路由键<br>BindingKey 绑定键</p>
+<p>138.rabbitmq 中 vhost 的作用是什么？<br>可以理解为虚拟boker 就是一个mini rabbitMq server </p>
+<p>139.rabbitmq 的消息是怎么发送的？<br>客户端连接到rabbitmq服务器发布和消费信息<br>客户端和rabbit server之间会创建一个tcp连接<br>一旦tcp打开并且通过认证<br>就会创建一个ampq信道<br>通过信道完成订阅队列</p>
+<p>140.rabbitmq 怎么保证消息的稳定性？<br>提高事务的共嗯那个<br>通过将channel设置为confirm确认模式</p>
+<p>141.rabbitmq 怎么避免消息丢失？<br>消息持久化<br>adc确认机制<br>设置集群镜像模式<br>消息补偿机制</p>
+<p>142.要保证消息持久化成功的条件有哪些？<br>声明消息队列必须设置持久化 将durable 设置为true<br>消息推送投递模式必须设置持久化<br>消息已经达到持久化交换器<br>消息已经达到持久化队列</p>
+<p>143.rabbitmq 持久化有什么缺点？<br>降低服务器的吞吐量<br>因为使用的是磁盘而不是内存<br>尽量使用ssd硬盘来缓解吞吐量的问题</p>
+<p>144.rabbitmq 有几种广播类型？<br>三种<br>fanout 分发模式 把消费者分发给所有订阅者<br>direct 默认方式 最基础最简单的模式 发送方把消息发送给订阅方 如果有多个订阅者 采用轮询的方式进行消息发送<br>topic 匹配订阅模式 </p>
+<p>145.rabbitmq 怎么实现延迟消息队列？<br>通过消息过期后进入死信交换器<br>再有交换器发送到延迟消费队列,实现延迟功能</p>
+<p>146.rabbitmq 集群有什么用？<br>高可用 某一个服务器出现问题 整个rabbitMq还可以继续使用<br>高容量 集群可以承载更多的消息量</p>
+<p>147.rabbitmq 节点的类型有哪些？<br>磁盘节点 消息会储存到硬盘<br>内存节点 消息储存在内存中 重启服务器消息丢失,性能高于磁盘类型</p>
+<p>148.rabbitmq 集群搭建需要注意哪些问题？<br>各个节点使用 –link连接 属性不能忽略<br>各个节点的erlang cookie值必须相同<br>整个集群中必须包含一个磁盘节点</p>
+<p>149.rabbitmq 每个节点是其他节点的完整拷贝吗？为什么？<br>不是<br>存储空间会增加冗余数据<br>如果每一个都完整拷贝,那新增节点并没有提升处理消息的能力</p>
+<p>150.rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？<br>不能创建队列<br>不能创建交换器<br>不能创建绑定<br>不能添加用户<br>不能更改权限<br>不能添加和删除集群节点</p>
+<p>151.rabbitmq 对集群节点停止顺序有要求吗？<br>Rabbitmq对集群的停止的顺序是有要求的 应该先关闭内存结点<br>最后在关闭磁盘节点<br>如果顺序反了 可能会造成消息的丢失</p>
 <p>十五、Kafka</p>
-<p>152.kafka 可以脱离 zookeeper 单独使用吗？为什么？</p>
-<p>153.kafka 有几种数据保留的策略？</p>
-<p>154.kafka 同时设置了 7 天和 10G 清除数据，到第五天的时候消息达到了 10G，这个时候 kafka 将如何处理？</p>
-<p>155.什么情况会导致 kafka 运行变慢？</p>
-<p>156.使用 kafka 集群需要注意什么？</p>
+<p>152.kafka 可以脱离 zookeeper 单独使用吗？为什么？<br>不可以 卡夫卡使用zookeeper管理和协调卡夫卡的节点服务器</p>
+<p>153.kafka 有几种数据保留的策略？<br>按照过期时间<br>按照存储的消息大小</p>
+<p>154.kafka 同时设置了 7 天和 10G 清除数据，到第五天的时候消息达到了 10G，这个时候 kafka 将如何处理？<br>会执行清除数据</p>
+<p>155.什么情况会导致 kafka 运行变慢？<br>cpu性能瓶颈<br>磁盘读写瓶颈<br>网络瓶颈</p>
+<p>156.使用 kafka 集群需要注意什么？<br>集群最好不要超过7个<br>因为节点越多 消息复制时间越长 整个群组的吞吐量越低<br>集群数量最好是单数 超过一半故障集群就不能用了 设置单数容错率更高</p>
 <p>十六、Zookeeper</p>
-<p>157.zookeeper 是什么？</p>
-<p>158.zookeeper 都有哪些功能？</p>
-<p>159.zookeeper 有几种部署模式？</p>
-<p>160.zookeeper 怎么保证主从节点的状态同步？</p>
-<p>161.集群中为什么要有主节点？</p>
-<p>162.集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</p>
-<p>163.说一下 zookeeper 的通知机制？</p>
+<p>157.zookeeper 是什么？<br>是一个开源的分布式应用协调服务器</p>
+<p>158.zookeeper 都有哪些功能？<br>集群管理<br>主节点选举<br>分布式锁<br>命名服务</p>
+<p>159.zookeeper 有几种部署模式？<br>单机部署<br>集群部署<br>伪集群部署</p>
+<p>160.zookeeper 怎么保证主从节点的状态同步？<br>核心的原子广播<br>这个机制保证了各个Server之间的同步</p>
+<p>161.集群中为什么要有主节点？<br>共享结果<br>减少重复结算<br>提高性能</p>
+<p>162.集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？<br>可以继续使用<br>在单数服务器只要没超过一般的服务器宕机就可以继续使用</p>
+<p>163.说一下 zookeeper 的通知机制？<br>客户端会对某一个znode建立一个事件<br>当发生变化时,客户端收到zookerper通知<br>然后客户端根据znode变化来做出业务上的改变</p>
 <p>十七、MySql</p>
-<p>164.数据库的三范式是什么？</p>
-<p>165.一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</p>
-<p>166.如何获取当前数据库版本？</p>
-<p>167.说一下 ACID 是什么？</p>
-<p>168.char 和 varchar 的区别是什么？</p>
-<p>169.float 和 double 的区别是什么？</p>
-<p>170.mysql 的内连接、左连接、右连接有什么区别？</p>
-<p>171.mysql 索引是怎么实现的？</p>
-<p>172.怎么验证 mysql 的索引是否满足需求？</p>
-<p>173.说一下数据库的事务隔离？</p>
-<p>174.说一下 mysql 常用的引擎？</p>
-<p>175.说一下 mysql 的行锁和表锁？</p>
-<p>176.说一下乐观锁和悲观锁？</p>
-<p>177.mysql 问题排查都有哪些手段？</p>
-<p>178.如何做 mysql 的性能优化？</p>
+<p>164.数据库的三范式是什么？<br>第一范式:强调列的原子性 数据库表中的每一个列都是不可分割的原子数据项<br>第二范式:要求实体的属性完全依赖于主关键字.<br>第三范式:任何非主属性不依赖与其他非主属性</p>
+<p>165.一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？<br>myISAM id 是8<br>InnoDB id 是6</p>
+<p>166.如何获取当前数据库版本？<br>使用select version 获取版本</p>
+<p>167.说一下 ACID 是什么？<br>原子性 一致性 隔离性 持久性</p>
+<p>168.char 和 varchar 的区别是什么？<br>char 是固定长度类型<br>varchar 可变长度<br>char效率高 占空间<br>varchar不占空间</p>
+<p>169.float 和 double 的区别是什么？<br>float最多可以储存8位的十进制数,并在内存当中占用4个字节<br>double最多可以储存16位十进制数,并在内存中占8个字节</p>
+<p>170.mysql 的内连接、左连接、右连接有什么区别？<br>内连接用 inner join<br>左连接 left join 右连接 right join<br>内连接是把匹配的关联数据显示出来<br>左右连接就是将一边的数据全部显示出来.另一边显示出符合条件的数据</p>
+<p>171.mysql 索引是怎么实现的？<br>主流的数据库引擎索引都是b+树实现的</p>
+<p>172.怎么验证 mysql 的索引是否满足需求？<br>使用explain查看sql是如何执行查询语句的</p>
+<p>173.说一下数据库的事务隔离？<br>mysql数据隔离实在mysql ini配置文件里添加的<br>read-uncommitted 最低隔离级别<br>read-Committed 一个事务提交之后才能被其他事务读取到<br>repeatable-read 可重复读 默认级别<br>serlalizable 序列化 最高隔离级别</p>
+<p>174.说一下 mysql 常用的引擎？<br>innoDB引擎 提供数据支持 提供锁和外键的约束<br>MyIASM引擎 数据库默认引擎 不提供事务支持 读操作多于写操作时可以使用</p>
+<p>175.说一下 mysql 的行锁和表锁？<br>MyISAM支持表锁<br>InnoDB支持表锁和行锁<br>表级锁:开销大 加锁快 不会出现死锁 并发量低<br>行级锁:开销大 枷锁慢 会出现死锁 并发度高</p>
+<p>176.说一下乐观锁和悲观锁？<br>乐观锁 提交更新的时候会判断以下在此间别人都没有更新这个数据<br>悲观锁 每次在那数据的时候都会上锁,这样别人想拿这个数据就会被阻止 知道这个锁被释放</p>
+<p>177.mysql 问题排查都有哪些手段？<br>使用show processlist命令查看当前所有连接<br>使用explain命令查询sql语句执行计划<br>开启慢查询日志 查看慢查询sql</p>
+<p>178.如何做 mysql 的性能优化？<br>为搜索字段创建索引<br>避免使用select*<br>垂直分割分表<br>选择正确的存储引擎</p>
 <p>十八、Redis</p>
-<p>179.redis 是什么？都有哪些使用场景？</p>
-<p>180.redis 有哪些功能？</p>
-<p>181.redis 和 memecache 有什么区别？</p>
-<p>182.redis 为什么是单线程的？</p>
-<p>183.什么是缓存穿透？怎么解决？</p>
-<p>184.redis 支持的数据类型有哪些？</p>
-<p>185.redis 支持的 java 客户端都有哪些？</p>
-<p>186.jedis 和 redisson 有哪些区别？</p>
-<p>187.怎么保证缓存和数据库数据的一致性？</p>
-<p>188.redis 持久化有几种方式？</p>
-<p>189.redis 怎么实现分布式锁？</p>
-<p>190.redis 分布式锁有什么缺陷？</p>
-<p>191.redis 如何做内存优化？</p>
-<p>192.redis 淘汰策略有哪些？</p>
-<p>193.redis 常见的性能问题有哪些？该如何解决？</p>
+<p>179.redis 是什么？都有哪些使用场景？<br>rdids是一个开源的c编写的基于内存可以持久化的日志执行Key-value数据库<br>使用场景<br>数据高并发的读写<br>海量数据的读写<br>对扩展性要求高的数据</p>
+<p>180.redis 有哪些功能？<br>数据缓存功能<br>分布锁的功能<br>支持数据持久化<br>支持事务<br>支持消息队列</p>
+<p>181.redis 和 memecache 有什么区别？<br>memecache所有值都是简单的字符串,redis有更多的数据类型<br>deids比memecache速度快<br>redis可以持久化数据</p>
+<p>182.redis 为什么是单线程的？<br>因为cpu不是redis的瓶颈,redis的瓶颈可能是机器内存<br>所以就是用了单线程<br>据我了解redis每秒几十万请求,并不能算慢<br>nginx和node.js也都是高性能的单线程代表</p>
+<p>183.什么是缓存穿透？怎么解决？<br>缓存穿透就是查询一个不存在的数据,去数据库中查询,查询不到的就不写入缓存<br>导致每次查询不存在的数据都要去数据库查询.造成缓存穿透<br>最简单的方案是允许缓存空置</p>
+<p>184.redis 支持的数据类型有哪些？<br>tring<br>list<br>hash<br>set<br>zset</p>
+<p>185.redis 支持的 java 客户端都有哪些？<br>redisson,jedis,lettuce<br>官方推荐redisson</p>
+<p>186.jedis 和 redisson 有哪些区别？<br>dedis是Redis的java实现的客户端提供了比较全面的redis命令的支持<br>redisson实现了分布是和可扩展的java数据结构</p>
+<p>187.怎么保证缓存和数据库数据的一致性？<br>合理的设置缓存过期时间<br>新增修改删除同时更新redis,可以使用事务机制来保证数据的一致性</p>
+<p>188.redis 持久化有几种方式？<br>两种<br>rdb指定的时间间隔对数据库进行快照储存<br>aof每个收到的命令都通过writer函数追加到文件中</p>
+<p>189.redis 怎么实现分布式锁？<br>redis分布锁其实就是在系统里占个位置<br>其他程序也要占位置时,占用成功了就可以继续执行,失败了只能放弃或重试</p>
+<p>190.redis 分布式锁有什么缺陷？<br>不能解决超时问题<br>程序执行如果超出了锁的超时时间,就会出现问题</p>
+<p>191.redis 如何做内存优化？<br>尽可能使用散列表<br>散列表使用内存小</p>
+<p>192.redis 淘汰策略有哪些？<br>colatile-lru 挑选最少使用的数据淘汰<br>colatile-ttl挑选将要过期的数据淘汰<br>colatile-random选择数据淘汰<br>no-enviction 禁止数据淘汰</p>
+<p>193.redis 常见的性能问题有哪些？该如何解决？<br>主服务器写内存快照,会阻塞主线程工作,当快照比较大时,对性能影响非常大<br>所以主服务器最好不要使用内存快照<br>主从服务器最好在一个局域网内增加复制的速度和连接的稳定性</p>
 <p>十九、JVM</p>
-<p>194.说一下 jvm 的主要组成部分？及其作用？</p>
-<p>195.说一下 jvm 运行时数据区？</p>
-<p>196.说一下堆栈的区别？</p>
-<p>197.队列和栈是什么？有什么区别？</p>
-<p>198.什么是双亲委派模型？</p>
-<p>199.说一下类加载的执行过程？</p>
-<p>200.怎么判断对象是否可以被回收？</p>
-<p>201.java 中都有哪些引用类型？</p>
-<p>202.说一下 jvm 有哪些垃圾回收算法？</p>
-<p>203.说一下 jvm 有哪些垃圾回收器？</p>
-<p>204.详细介绍一下 CMS 垃圾回收器？</p>
-<p>205.新生代垃圾回收器和老生代垃圾回收器都有哪些？有什么区别？</p>
-<p>206.简述分代垃圾回收器是怎么工作的？</p>
-<p>207.说一下 jvm 调优的工具？</p>
-<p>208.常用的 jvm 调优的参数都有哪些？</p>
+<p>194.说一下 jvm 的主要组成部分？及其作用？<br>类加载器<br>运行时数据区<br>执行引擎<br>本地库接口</p>
+<p>195.说一下 jvm 运行时数据区？<br>五个部分<br>程序计数器<br>java虚拟机栈<br>本地方法栈<br>java堆<br>方法区</p>
+<p>196.说一下堆栈的区别？<br>功能方面:堆是用来存放对象的,栈是用来执行对象的<br>共享性:堆是线程共享的,栈是线程私有的<br>空间大小:堆大小远远大于栈</p>
+<p>197.队列和栈是什么？有什么区别？<br>队列和栈都是被用来储存数据的<br>队列允许先进先出检查元素<br>栈和队列很相似,但它运行对元素进行后进后出检索</p>
+<p>198.什么是双亲委派模型？<br>如果一个类加载器收到了类加载的请求.他首先不会自己去加载这个类<br>而是把这个请求委派给父加载器去完成,每一层的类加载器都是如此</p>
+<p>199.说一下类加载的执行过程？<br>加载<br>检查<br>准备<br>解析<br>初始化</p>
+<p>200.怎么判断对象是否可以被回收？<br>引用计数器<br>可达性分析</p>
+<p>201.java 中都有哪些引用类型？<br>强引用 发生gc时候不会被拒绝<br>软引用 有用带但不是必须的对象 在发生内存溢出之前会被回收<br>弱引用 有用带不是必须的对象 在下一次GC是会被回收<br>虚引用 无法通过虚引用获得对象</p>
+<p>202.说一下 jvm 有哪些垃圾回收算法？<br>标记清除算法 标记无用对象,然后进行清除回收 效率不高 无法清除垃圾碎片<br>标记整理算法 标记物用对象,让所有存活的对象都向一端移动,然后直接清除掉边界以外的内存<br>复制算法:按照容量划分两个大小相等的内存区域<br>分带算法:根据对象存货周期将不同的内存划分几块</p>
+<p>203.说一下 jvm 有哪些垃圾回收器？<br>Serial:最早的单线程垃圾回收器<br>Serial Old:Serial垃圾回收器的老年版本<br>ParNew:Serial的多线程版本<br>Parallel和ParNew收集器时多线程的<br>Parallel和Parallel老生代版本<br>CMs:一种一获得最短停顿时间为目标的收集器 适用于b/s系统<br>G1:一种兼顾吞吐量和停顿时间的G实现</p>
+<p>204.详细介绍一下 CMS 垃圾回收器？<br>是一个牺牲吞吐量为代价获得回收停顿时间的垃圾回收器,使用标记-清楚算法实现</p>
+<p>205.新生代垃圾回收器和老生代垃圾回收器都有哪些？有什么区别？<br>新生回收器:Serial , ParNew ,  Parallel Scabenge<br>老年代回收器:Serial Old  , Parallel Old  , CMS<br>整堆回收器:G1</p>
+<p>新生代回收器一般采用的时复制算法,复制算法的优点就是效率高,缺点时内存利用率低<br>老年代回收器一般采用标记 整理 的算法 进行回收</p>
+<p>206.简述分代垃圾回收器是怎么工作的？<br>分代垃圾回收器有两个分区:老生代和新生代<br>新生代默认三分之一 老生代默认三分之二</p>
+<p>207.说一下 jvm 调优的工具？<br>jdk带了很多监控工具 都位于jdk的bin目录下<br>其中最常用的时jsonsole和jvisulvm这两款</p>
+<p>208.常用的 jvm 调优的参数都有哪些？<br>-Xms2g:初始化为2g<br>-Xmx2g:堆最大内存为2g<br>-XX:NewRatio=4:设置年轻和老年代的内存比例1:4<br>-XX:SurvivorRatio=8:设置新生代Eden和Survivor比例8:2<br>-XX:+UseParNewGC:指定使用ParNew + Serial Old垃圾回收器组合<br>-XX:+UseParallelOldGC:指定使用ParNew + ParNew Old 垃圾回收器组合<br>-XX:+UseConMarkSweepGC:指定使用CMS+Ssrial Old垃圾回收器组合<br>-XX:+PrintGC:开启打印gc详细信息<br>-XX:+PrintGCDetails:打印gc详细信息</p>
 
   </article>
 
@@ -594,7 +602,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script async src="/js/app.js?v=1624619831867"></script>
+<script async src="/js/app.js?v=1624725242719"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
